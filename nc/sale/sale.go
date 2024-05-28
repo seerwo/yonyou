@@ -20,101 +20,104 @@ func NewSale(context *context.Context) *Sale {
 	return sale
 }
 
+type ReqSaleOrderBillHead struct{
+			Csaleorderid     string  `json:"csaleorderid,omitempty" xml:"csaleorderid,omitempty" comment:""`
+			PkGroup          string  `json:"pk_group,omitempty" xml:"pk_group,omitempty" comment:"集团"`                 
+			PkOrg            string  `json:"pk_org,omitempty" xml:"pk_org,omitempty" comment:"销售组织"`                     
+			PkOrgV           string  `json:"pk_org_v,omitempty" xml:"pk_org_v,omitempty" comment:"销售组织版本"`               
+			Ctrantypeid      string  `json:"ctrantypeid,omitempty" xml:"ctrantypeid,omitempty" comment:"订单类型"`           
+			Vtrantypecode    string  `json:"vtrantypecode,omitempty" xml:"vtrantypecode,omitempty" comment:"订单类型编码"`       
+			Cbiztypeid       string  `json:"cbiztypeid,omitempty" xml:"cbiztypeid,omitempty" comment:"业务流程"`             
+			Vbillcode        string  `json:"vbillcode,omitempty" xml:"vbillcode,omitempty" comment:"单据号"`               
+			Dbilldate        string  `json:"dbilldate,omitempty" xml:"dbilldate,omitempty" comment:"单据日期"`               
+			Ccustomerid      string  `json:"ccustomerid,omitempty" xml:"ccustomerid,omitempty" comment:"客户"`           
+			Bfreecustflag    string  `json:"bfreecustflag,omitempty" xml:"bfreecustflag,omitempty" comment:"是否散户"`       
+			Cfreecustid      string  `json:"cfreecustid,omitempty" xml:"cfreecustid,omitempty" comment:"散户"`           
+			Cdeptvid         string  `json:"cdeptvid,omitempty" xml:"cdeptvid,omitempty" comment:"部门"`                 
+			Cdeptid          string  `json:"cdeptid,omitempty" xml:"cdeptid,omitempty" comment:"部门"`                   
+			Cemployeeid      string  `json:"cemployeeid,omitempty" xml:"cemployeeid,omitempty" comment:"业务员"`           
+			Corigcurrencyid  string  `json:"corigcurrencyid,omitempty" xml:"corigcurrencyid,omitempty" comment:"原币"`   
+			Cinvoicecustid   string  `json:"cinvoicecustid,omitempty" xml:"cinvoicecustid,omitempty" comment:"开票客户"`     
+			Ccustbankid      string  `json:"ccustbankid,omitempty" xml:"ccustbankid,omitempty" comment:"开户银行"`           
+			Ccustbankaccid   string  `json:"ccustbankaccid,omitempty" xml:"ccustbankaccid,omitempty" comment:"开户银行账户"`     
+			Cchanneltypeid   string  `json:"cchanneltypeid,omitempty" xml:"cchanneltypeid,omitempty" comment:"销售渠道类型"`     
+			Cpaytermid       string  `json:"cpaytermid,omitempty" xml:"cpaytermid,omitempty" comment:"收款协议"`             
+			Ctransporttypeid string  `json:"ctransporttypeid,omitempty" xml:"ctransporttypeid,omitempty" comment:"运输方式"` 
+			Ctradewordid     string  `json:"ctradewordid,omitempty" xml:"ctradewordid,omitempty" comment:"贸易术语"`         
+			Ndiscountrate    float64 `json:"ndiscountrate,omitempty" xml:"ndiscountrate,omitempty" comment:"整单折扣"`       
+			Vcreditnum       string  `json:"vcreditnum,omitempty" xml:"vcreditnum,omitempty" comment:"信用证号"`             
+			Cbalancetypeid   string  `json:"cbalancetypeid,omitempty" xml:"cbalancetypeid,omitempty" comment:"结算方式"`                          
+			Badvfeeflag      string  `json:"badvfeeflag,omitempty" xml:"badvfeeflag,omitempty" comment:"代垫运费"`          
+			Npreceiverate    float64 `json:"npreceiverate,omitempty" xml:"npreceiverate,omitempty" comment:"订单收款比例"`       
+			Npreceivequota   float64 `json:"npreceivequota,omitempty" xml:"npreceivequota,omitempty" comment:"订单收款限额"`     
+			Bpreceiveflag    string  `json:"bpreceiveflag,omitempty" xml:"bpreceiveflag,omitempty" comment:"收款限额控制预收"`       
+			Npreceivemny     float64 `json:"npreceivemny,omitempty" xml:"npreceivemny,omitempty" comment:"实际预收款金额"`         
+			Nreceivedmny     float64 `json:"nreceivedmny,omitempty" xml:"nreceivedmny,omitempty" comment:"实际收款金额"`         
+			Nthisreceivemny  float64 `json:"nthisreceivemny,omitempty" xml:"nthisreceivemny,omitempty" comment:"本次收款金额"`   
+			Ntotalnum        float64 `json:"ntotalnum,omitempty" xml:"ntotalnum,omitempty" comment:"总数量"`               
+			Ntotalweight     float64 `json:"ntotalweight,omitempty" xml:"ntotalweight,omitempty" comment:"合计重量"`         
+			Ntotalvolume     float64 `json:"ntotalvolume,omitempty" xml:"ntotalvolume,omitempty" comment:"合计体积"`         
+			Ntotalpiece      float64 `json:"ntotalpiece,omitempty" xml:"ntotalpiece,omitempty" comment:"总件数"`           
+			Ntotalorigmny    float64 `json:"ntotalorigmny,omitempty" xml:"ntotalorigmny,omitempty" comment:"价税合计"`       
+			Ntotalmny        float64 `json:"ntotalmny,omitempty" xml:"ntotalmny,omitempty" comment:"冲抵前金额"`               
+			Ntotalorigsubmny float64 `json:"ntotalorigsubmny,omitempty" xml:"ntotalorigsubmny,omitempty" comment:"费用冲抵金额"` 
+			Boffsetflag      string  `json:"boffsetflag,omitempty" xml:"boffsetflag,omitempty" comment:"是否冲抵"`           
+			Vcooppohcode     string  `json:"vcooppohcode,omitempty" xml:"vcooppohcode,omitempty" comment:"对方订单号"`         
+			Bpocooptomeflag  string  `json:"bpocooptomeflag,omitempty" xml:"bpocooptomeflag,omitempty" comment:"由采购订单协同生成"`   
+			DestPkOrg        string  `json:"dest_pk_org,omitempty" xml:"dest_pk_org,omitempty" comment:""`
+			Bcooptopoflag    string  `json:"bcooptopoflag,omitempty" xml:"bcooptopoflag,omitempty" comment:"已协同生成采购订单"` 
+			Fstatusflag      int     `json:"fstatusflag,omitempty" xml:"fstatusflag,omitempty" comment:"单据状态"`     
+			Fpfstatusflag    string  `json:"fpfstatusflag,omitempty" xml:"fpfstatusflag,omitempty" comment:"审批流状态"` 
+			Vnote            string  `json:"vnote,omitempty" xml:"vnote,omitempty" comment:""`
+			Vdef1            string  `json:"vdef1,omitempty" xml:"vdef1,omitempty" comment:""`
+			Vdef2            string  `json:"vdef2,omitempty" xml:"vdef2,omitempty" comment:""`
+			Vdef3            string  `json:"vdef3,omitempty" xml:"vdef3,omitempty" comment:""`
+			Vdef4            string  `json:"vdef4,omitempty" xml:"vdef4,omitempty" comment:""`
+			Vdef5            string  `json:"vdef5,omitempty" xml:"vdef5,omitempty" comment:""`
+			Vdef6            string  `json:"vdef6,omitempty" xml:"vdef6,omitempty" comment:""`
+			Vdef7            string  `json:"vdef7,omitempty" xml:"vdef7,omitempty" comment:""`
+			Vdef8            string  `json:"vdef8,omitempty" xml:"vdef8,omitempty" comment:""`
+			Vdef9            string  `json:"vdef9,omitempty" xml:"vdef9,omitempty" comment:""`
+			Vdef10           string  `json:"vdef10,omitempty" xml:"vdef10,omitempty" comment:""`
+			Vdef11           string  `json:"vdef11,omitempty" xml:"vdef11,omitempty" comment:""`
+			Vdef12           string  `json:"vdef12,omitempty" xml:"vdef12,omitempty" comment:""`
+			Vdef13           string  `json:"vdef13,omitempty" xml:"vdef13,omitempty" comment:""`
+			Vdef14           string  `json:"vdef14,omitempty" xml:"vdef14,omitempty" comment:"销售分类 b2b,b2c"` 
+			Vdef15           string  `json:"vdef15,omitempty" xml:"vdef15,omitempty" comment:""`
+			Vdef16           string  `json:"vdef16,omitempty" xml:"vdef16,omitempty" comment:""`
+			Vdef17           string  `json:"vdef17,omitempty" xml:"vdef17,omitempty" comment:""`
+			Vdef18           string  `json:"vdef18,omitempty" xml:"vdef18,omitempty" comment:""`
+			Vdef19           string  `json:"vdef19,omitempty" xml:"vdef19,omitempty" comment:""`
+			Vdef20           string  `json:"vdef20,omitempty" xml:"vdef20,omitempty" comment:""`
+			Billmaker        string  `json:"billmaker,omitempty" xml:"billmaker,omitempty" comment:"制单人"`             
+			Dmakedate        string  `json:"dmakedate,omitempty" xml:"dmakedate,omitempty" comment:"制单日期"`            
+			Creator          string  `json:"creator,omitempty" xml:"creator,omitempty" comment:"创建人"`                 
+			Creationtime     string  `json:"creationtime,omitempty" xml:"creationtime,omitempty" comment:"创建时间"`       
+			Modifier         string  `json:"modifier,omitempty" xml:"modifier,omitempty" comment:"修改人"`               
+			Modifiedtime     string  `json:"modifiedtime,omitempty" xml:"modifiedtime,omitempty" comment:"修改时间"`        
+			Approver         string  `json:"approver,omitempty" xml:"approver,omitempty" comment:"审批人"`               
+			Taudittime       string  `json:"taudittime,omitempty" xml:"taudittime,omitempty" comment:"审核日期"`           
+			Creviserid       string  `json:"creviserid,omitempty" xml:"creviserid,omitempty" comment:"修订人"`           
+			Iversion         int     `json:"iversion,omitempty" xml:"iversion,omitempty" comment:"修订版本号"`               
+			Vrevisereason    string  `json:"vrevisereason,omitempty" xml:"vrevisereason,omitempty" comment:"修订理由"`     
+			Trevisetime      string  `json:"trevisetime,omitempty" xml:"trevisetime,omitempty" comment:"修订时间"`         
+			Bsendendflag     string  `json:"bsendendflag,omitempty" xml:"bsendendflag,omitempty" comment:"发货关闭"`       
+			Boutendflag      string  `json:"boutendflag,omitempty" xml:"boutendflag,omitempty" comment:"出库关闭"`         
+			Binvoicendflag   string  `json:"binvoicendflag,omitempty" xml:"binvoicendflag,omitempty" comment:"开票关闭"`   
+			Bcostsettleflag  string  `json:"bcostsettleflag,omitempty" xml:"bcostsettleflag,omitempty" comment:"成本结算关闭"` 
+			Barsettleflag    string  `json:"barsettleflag,omitempty" xml:"barsettleflag,omitempty" comment:"收入结算关闭"`     
+			Iprintcount      int     `json:"iprintcount,omitempty" xml:"iprintcount,omitempty" comment:"打印次数"`  
+			Nlrgtotalorigmny float64 `json:"nlrgtotalorigmny,omitempty" xml:"nlrgtotalorigmny,omitempty" comment:""`       
+			SoSaleorderB     struct {
+				Items []SaleItem `json:"item" xml:"item"`
+			} `json:"so_saleorder_b" xml:"so_saleorder_b"`
+}
+
 type ReqSaleOrder struct {
 	XMLName xml.Name `xml:"ufinterface"`
 	base.Base
 	Bill struct {
-		Billhead struct {
-			Csaleorderid     string  `json:"csaleorderid" xml:"csaleorderid"`
-			PkGroup          string  `json:"pk_group" xml:"pk_group"`                 //集团
-			PkOrg            string  `json:"pk_org" xml:"pk_org"`                     //销售组织
-			PkOrgV           string  `json:"pk_org_v" xml:"pk_org_v"`                 //销售组织版本
-			Ctrantypeid      string  `json:"ctrantypeid" xml:"ctrantypeid"`           //订单类型
-			Vtrantypecode    string  `json:"vtrantypecode" xml:"vtrantypecode"`       //订单类型编码
-			Cbiztypeid       string  `json:"cbiztypeid" xml:"cbiztypeid"`             //业务流程
-			Vbillcode        string  `json:"vbillcode" xml:"vbillcode"`               //单据号
-			Dbilldate        string  `json:"dbilldate" xml:"dbilldate"`               //单据日期
-			Ccustomerid      string  `json:"ccustomerid" xml:"ccustomerid"`           //客户
-			Bfreecustflag    string  `json:"bfreecustflag" xml:"bfreecustflag"`       //是否散户
-			Cfreecustid      string  `json:"cfreecustid" xml:"cfreecustid"`           //散户
-			Cdeptvid         string  `json:"cdeptvid" xml:"cdeptvid"`                 //部门
-			Cdeptid          string  `json:"cdeptid" xml:"cdeptid"`                   //部门
-			Cemployeeid      string  `json:"cemployeeid" xml:"cemployeeid"`           //业务员
-			Corigcurrencyid  string  `json:"corigcurrencyid" xml:"corigcurrencyid"`   //原币
-			Cinvoicecustid   string  `json:"cinvoicecustid" xml:"cinvoicecustid"`     //开票客户
-			Ccustbankid      string  `json:"ccustbankid" xml:"ccustbankid"`           //开户银行
-			Ccustbankaccid   string  `json:"ccustbankaccid" xml:"ccustbankaccid"`     //开户银行账户
-			Cchanneltypeid   string  `json:"cchanneltypeid" xml:"cchanneltypeid"`     //销售渠道类型
-			Cpaytermid       string  `json:"cpaytermid" xml:"cpaytermid"`             //收款协议
-			Ctransporttypeid string  `json:"ctransporttypeid" xml:"ctransporttypeid"` //运输方式
-			Ctradewordid     string  `json:"ctradewordid" xml:"ctradewordid"`         //贸易术语
-			Ndiscountrate    float64 `json:"ndiscountrate" xml:"ndiscountrate"`       //整单折扣
-			Vcreditnum       string  `json:"vcreditnum" xml:"vcreditnum"`             //信用证号
-			Cbalancetypeid   string  `json:"cbalancetypeid"`                          //结算方式
-			Badvfeeflag      string  `json:"badvfeeflag" xml:"badvfeeflag"`           //代垫运费
-			Npreceiverate    float64 `json:"npreceiverate" xml:"npreceiverate"`       //订单收款比例
-			Npreceivequota   float64 `json:"npreceivequota" xml:"npreceivequota"`     //订单收款限额
-			Bpreceiveflag    string  `json:"bpreceiveflag" xml:"bpreceiveflag"`       //收款限额控制预收
-			Npreceivemny     float64 `json:"npreceivemny" xml:"npreceivemny"`         //实际预收款金额
-			Nreceivedmny     float64 `json:"nreceivedmny" xml:"nreceivedmny"`         //实际收款金额
-			Nthisreceivemny  float64 `json:"nthisreceivemny" xml:"nthisreceivemny"`   //本次收款金额
-			Ntotalnum        float64 `json:"ntotalnum" xml:"ntotalnum"`               //总数量
-			Ntotalweight     float64 `json:"ntotalweight" xml:"ntotalweight"`         //合计重量
-			Ntotalvolume     float64 `json:"ntotalvolume" xml:"ntotalvolume"`         //合计体积
-			Ntotalpiece      float64 `json:"ntotalpiece" xml:"ntotalpiece"`           //总件数
-			Ntotalorigmny    float64 `json:"ntotalorigmny" xml:"ntotalorigmny"`       //价税合计
-			Ntotalmny        float64 `json:"ntotalmny" xml:"ntotalmny"`               //冲抵前金额
-			Ntotalorigsubmny float64 `json:"ntotalorigsubmny" xml:"ntotalorigsubmny"` //费用冲抵金额
-			Boffsetflag      string  `json:"boffsetflag" xml:"boffsetflag"`           //是否冲抵
-			Vcooppohcode     string  `json:"vcooppohcode" xml:"vcooppohcode"`         //对方订单号
-			Bpocooptomeflag  string  `json:"bpocooptomeflag" xml:"bpocooptomeflag"`   //由采购订单协同生成
-			DestPkOrg        string  `json:"dest_pk_org" xml:"dest_pk_org"`
-			Bcooptopoflag    string  `json:"bcooptopoflag" xml:"bcooptopoflag"` //已协同生成采购订单
-			Fstatusflag      int     `json:"fstatusflag" xml:"fstatusflag"`     //单据状态
-			Fpfstatusflag    string  `json:"fpfstatusflag" xml:"fpfstatusflag"` //审批流状态
-			Vnote            string  `json:"vnote" xml:"vnote"`
-			Vdef1            string  `json:"vdef1" xml:"vdef1"`
-			Vdef2            string  `json:"vdef2" xml:"vdef2"`
-			Vdef3            string  `json:"vdef3" xml:"vdef3"`
-			Vdef4            string  `json:"vdef4" xml:"vdef4"`
-			Vdef5            string  `json:"vdef5" xml:"vdef5"`
-			Vdef6            string  `json:"vdef6" xml:"vdef6"`
-			Vdef7            string  `json:"vdef7" xml:"vdef7"`
-			Vdef8            string  `json:"vdef8" xml:"vdef8"`
-			Vdef9            string  `json:"vdef9" xml:"vdef9"`
-			Vdef10           string  `json:"vdef10" xml:"vdef10"`
-			Vdef11           string  `json:"vdef11" xml:"vdef11"`
-			Vdef12           string  `json:"vdef12" xml:"vdef12"`
-			Vdef13           string  `json:"vdef13" xml:"vdef13"`
-			Vdef14           string  `json:"vdef14" xml:"vdef14"` //销售分类 b2b,b2c
-			Vdef15           string  `json:"vdef15" xml:"vdef15"`
-			Vdef16           string  `json:"vdef16" xml:"vdef16"`
-			Vdef17           string  `json:"vdef17" xml:"vdef17"`
-			Vdef18           string  `json:"vdef18" xml:"vdef18"`
-			Vdef19           string  `json:"vdef19" xml:"vdef19"`
-			Vdef20           string  `json:"vdef20" xml:"vdef20"`
-			Billmaker        string  `json:"billmaker" xml:"billmaker"`             //制单人
-			Dmakedate        string  `json:"dmakedate" xml:"dmakedate"`             //制单日期
-			Creator          string  `json:"creator" xml:"creator"`                 //创建人
-			Creationtime     string  `json:"creationtime" xml:"creationtime"`       //创建时间
-			Modifier         string  `json:"modifier" xml:"modifier"`               //修改人
-			Modifiedtime     string  `json:"modifiedtime" xml:"modifiedtime"`       //修改时间
-			Approver         string  `json:"approver" xml:"approver"`               //审批人
-			Taudittime       string  `json:"taudittime" xml:"taudittime"`           //审核日期
-			Creviserid       string  `json:"creviserid" xml:"creviserid"`           //修订人
-			Iversion         int     `json:"iversion" xml:"iversion"`               //修订版本号
-			Vrevisereason    string  `json:"vrevisereason" xml:"vrevisereason"`     //修订理由
-			Trevisetime      string  `json:"trevisetime" xml:"trevisetime"`         //修订时间
-			Bsendendflag     string  `json:"bsendendflag" xml:"bsendendflag"`       //发货关闭
-			Boutendflag      string  `json:"boutendflag" xml:"boutendflag"`         //出库关闭
-			Binvoicendflag   string  `json:"binvoicendflag" xml:"binvoicendflag"`   //开票关闭
-			Bcostsettleflag  string  `json:"bcostsettleflag" xml:"bcostsettleflag"` //成本结算关闭
-			Barsettleflag    string  `json:"barsettleflag" xml:"barsettleflag"`     //收入结算关闭
-			Iprintcount      int     `json:"iprintcount" xml:"iprintcount"`         //打印次数
-			SoSaleorderB     struct {
-				Items []SaleItem `json:"item" xml:"item"`
-			} `json:"so_saleorder_b" xml:"so_saleorder_b"`
-		} `json:"billhead" xml:"billhead"`
+		Billhead ReqSaleOrderBillHead  `json:"billhead" xml:"billhead"`
 	} `json:"bill" xml:"bill"`
 }
 
@@ -138,224 +141,224 @@ type Docitem struct {
 }
 
 type SaleItem struct {
-	Csaleorderbid      string  `json:"csaleorderbid" xml:"csaleorderbid"`
-	PkGroup            string  `json:"pk_group" xml:"pk_group"`                     //集团
-	PkOrg              string  `json:"pk_org" xml:"pk_org"`                         //销售组织
-	Dbilldate          string  `json:"dbilldate" xml:"dbilldate"`                   //单据日期
-	Crowno             string  `json:"crowno" xml:"crowno"`                         //行号
-	Cmaterialvid       string  `json:"cmaterialvid" xml:"cmaterialvid"`             //物料编码
-	Cmaterialid        string  `json:"cmaterialid" xml:"cmaterialid"`               //物料
-	Cvendorid          string  `json:"cvendorid" xml:"cvendorid"`                   //供应商
-	Cprojectid         string  `json:"cprojectid" xml:"cprojectid"`                 //项目
-	Cproductorid       string  `json:"cproductorid" xml:"cproductorid"`             //生产厂商
-	Cfactoryid         string  `json:"cfactoryid" xml:"cfactoryid"`                 //工厂
-	Cqualitylevelid    string  `json:"cqualitylevelid" xml:"cqualitylevelid"`       //质量等级
-	Corigcountryid     string  `json:"corigcountryid" xml:"corigcountryid"`         //原产国
-	Corigareaid        string  `json:"corigareaid" xml:"corigareaid"`               //原产地区
-	Cunitid            string  `json:"cunitid" xml:"cunitid"`                       //主单位
-	Castunitid         string  `json:"castunitid" xml:"castunitid"`                 //单位
-	Nnum               int     `json:"nnum" xml:"nnum"`                             //主数量
-	Nastnum            int     `json:"nastnum" xml:"nastnum"`                       //数量
-	Vchangerate        string  `json:"vchangerate" xml:"vchangerate"`               //换算率
-	Cqtunitid          string  `json:"cqtunitid" xml:"cqtunitid"`                   //报价单位
-	Nqtunitnum         float64 `json:"nqtunitnum" xml:"nqtunitnum"`                 //报价单位数量
-	Vqtunitrate        string  `json:"vqtunitrate" xml:"vqtunitrate"`               //报价换算率
-	Ndiscountrate      float64 `json:"ndiscountrate" xml:"ndiscountrate"`           //整单折扣
-	Nitemdiscountrate  float64 `json:"nitemdiscountrate" xml:"nitemdiscountrate"`   //单品折扣
-	Ctaxcodeid         string  `json:"ctaxcodeid" xml:"ctaxcodeid"`                 //税码
-	Ntaxrate           float64 `json:"ntaxrate" xml:"ntaxrate"`                     //税率
-	Ftaxtypeflag       int     `json:"ftaxtypeflag" xml:"ftaxtypeflag"`             //扣税类别
-	Ccurrencyid        string  `json:"ccurrencyid" xml:"ccurrencyid"`               //本位币
-	Nexchangerate      float64 `json:"nexchangerate" xml:"nexchangerate"`           //折本汇率
-	Nqtorigtaxprice    float64 `json:"nqtorigtaxprice" xml:"nqtorigtaxprice"`       //含税单价
-	Nqtorigprice       float64 `json:"nqtorigprice" xml:"nqtorigprice"`             //无税单价
-	Nqtorigtaxnetprc   float64 `json:"nqtorigtaxnetprc" xml:"nqtorigtaxnetprc"`     //含税净价
-	Nqtorignetprice    float64 `json:"nqtorignetprice" xml:"nqtorignetprice"`       //无税净价
-	Norigtaxprice      float64 `json:"norigtaxprice" xml:"norigtaxprice"`           //主含税单价
-	Norigprice         float64 `json:"norigprice" xml:"norigprice"`                 //主无税单价
-	Norigtaxnetprice   float64 `json:"norigtaxnetprice" xml:"norigtaxnetprice"`     //主含税净价
-	Norignetprice      float64 `json:"norignetprice" xml:"norignetprice"`           //主无税净价
-	Ntax               float64 `json:"ntax" xml:"ntax"`                             //税额
-	Ncaltaxmny         float64 `json:"ncaltaxmny" xml:"ncaltaxmny"`                 //计税金额
-	Norigmny           float64 `json:"norigmny" xml:"norigmny"`                     //无税金额
-	Norigtaxmny        float64 `json:"norigtaxmny" xml:"norigtaxmny"`               //价税合计
-	Norigdiscount      float64 `json:"norigdiscount" xml:"norigdiscount"`           //折扣额
-	Nbforigsubmny      float64 `json:"nbforigsubmny" xml:"nbforigsubmny"`           //冲抵前金额
-	Nqttaxprice        float64 `json:"nqttaxprice" xml:"nqttaxprice"`               //本币含税单价
-	Nqtprice           float64 `json:"nqtprice" xml:"nqtprice"`                     //本币无税单价
-	Nqttaxnetprice     float64 `json:"nqttaxnetprice" xml:"nqttaxnetprice"`         //本币含税净价
-	Nqtnetprice        float64 `json:"nqtnetprice" xml:"nqtnetprice"`               //本币无税净价
-	Ntaxprice          float64 `json:"ntaxprice" xml:"ntaxprice"`                   //主本币含税单价
-	Nprice             float64 `json:"nprice" xml:"nprice"`                         //主本币无税单价
-	Ntaxnetprice       float64 `json:"ntaxnetprice" xml:"ntaxnetprice"`             //主本币含税净价
-	Nnetprice          float64 `json:"nnetprice" xml:"nnetprice"`                   //主本币无税净价
-	Nmny               float64 `json:"nmny" xml:"nmny"`                             //本币无税金额
-	Ntaxmny            float64 `json:"ntaxmny" xml:"ntaxmny"`                       //本币价税合计
-	Ndiscount          float64 `json:"ndiscount" xml:"ndiscount"`                   //本币折扣额
-	Ngroupexchgrate    float64 `json:"ngroupexchgrate" xml:"ngroupexchgrate"`       //集团本位币汇率
-	Ngroupmny          float64 `json:"ngroupmny" xml:"ngroupmny"`                   //集团本币无税金额
-	Ngrouptaxmny       float64 `json:"ngrouptaxmny" xml:"ngrouptaxmny"`             //集团本币价税合计
-	Nglobalexchgrate   float64 `json:"nglobalexchgrate" xml:"nglobalexchgrate"`     //全局本位币汇率
-	Nglobalmny         float64 `json:"nglobalmny" xml:"nglobalmny"`                 //全局本币无税金额
-	Nglobaltaxmny      float64 `json:"nglobaltaxmny" xml:"nglobaltaxmny"`           //全局本币价税合计
-	Naskqtorigtaxprc   float64 `json:"naskqtorigtaxprc" xml:"naskqtorigtaxprc"`     //询价原币含税单价
-	Naskqtorigprice    float64 `json:"naskqtorigprice" xml:"naskqtorigprice"`       //询价原币无税单价
-	Naskqtorigtxntprc  float64 `json:"naskqtorigtxntprc" xml:"naskqtorigtxntprc"`   //询价原币含税净价
-	Naskqtorignetprice float64 `json:"naskqtorignetprice" xml:"naskqtorignetprice"` //询价原币无税净价
-	Nweight            float64 `json:"nweight" xml:"nweight"`                       //重量
-	Nvolume            float64 `json:"nvolume" xml:"nvolume"`                       //体积
-	Npiece             float64 `json:"npiece" xml:"npiece"`                         //件数
-	Cprodlineid        string  `json:"cprodlineid" xml:"cprodlineid"`               //产品线
-	Vbatchcode         string  `json:"vbatchcode" xml:"vbatchcode"`                 //批次号
-	PkBatchcode        string  `json:"pk_batchcode" xml:"pk_batchcode"`
-	Blaborflag         string  `json:"blaborflag" xml:"blaborflag"`               //服务类
-	Bdiscountflag      string  `json:"bdiscountflag" xml:"bdiscountflag"`         //折扣类
-	Blargessflag       string  `json:"blargessflag" xml:"blargessflag"`           //赠品
-	Bbindflag          string  `json:"bbindflag" xml:"bbindflag"`                 //捆绑存货
-	Dsenddate          string  `json:"dsenddate" xml:"dsenddate"`                 //要求发货日期
-	Dreceivedate       string  `json:"dreceivedate" xml:"dreceivedate"`           //计划到货日期
-	Creceivecustid     string  `json:"creceivecustid" xml:"creceivecustid"`       //收货客户
-	Creceiveareaid     string  `json:"creceiveareaid" xml:"creceiveareaid"`       //收货地区
-	Creceiveaddrid     string  `json:"creceiveaddrid" xml:"creceiveaddrid"`       //收货地址
-	Creceiveadddocid   string  `json:"creceiveadddocid" xml:"creceiveadddocid"`   //收货地点
-	Csendstockorgvid   string  `json:"csendstockorgvid" xml:"csendstockorgvid"`   //发货库存组织
-	Csendstockorgid    string  `json:"csendstockorgid" xml:"csendstockorgid"`     //发货库存组织最新版本
-	Csendstordocid     string  `json:"csendstordocid" xml:"csendstordocid"`       //发货仓库
-	Ctrafficorgvid     string  `json:"ctrafficorgvid" xml:"ctrafficorgvid"`       //物流组织
-	Ctrafficorgid      string  `json:"ctrafficorgid" xml:"ctrafficorgid"`         //物流组织
-	Csettleorgvid      string  `json:"csettleorgvid" xml:"csettleorgvid"`         //结算财务组织
-	Csettleorgid       string  `json:"csettleorgid" xml:"csettleorgid"`           //结算财务组织
-	Crececountryid     string  `json:"crececountryid" xml:"crececountryid"`       //收货国家/地区
-	Csendcountryid     string  `json:"csendcountryid" xml:"csendcountryid"`       //发货国家/地区
-	Ctaxcountryid      string  `json:"ctaxcountryid" xml:"ctaxcountryid"`         //报税国家/地区
-	Fbuysellflag       int     `json:"fbuysellflag" xml:"fbuysellflag"`           //购销类型
-	Btriatradeflag     string  `json:"btriatradeflag" xml:"btriatradeflag"`       //三角贸易
-	Carorgvid          string  `json:"carorgvid" xml:"carorgvid"`                 //应收组织
-	Carorgid           string  `json:"carorgid" xml:"carorgid"`                   //应收组织最新版本
-	Cprofitcentervid   string  `json:"cprofitcentervid" xml:"cprofitcentervid"`   //利润中心
-	Cprofitcenterid    string  `json:"cprofitcenterid" xml:"cprofitcenterid"`     //利润中心
-	Vbrevisereason     string  `json:"vbrevisereason" xml:"vbrevisereason"`       //修订理由
-	Frowstatus         int     `json:"frowstatus" xml:"frowstatus"`               //行状态
-	Vrownote           string  `json:"vrownote" xml:"vrownote"`                   //行备注
-	Cpriceformid       string  `json:"cpriceformid" xml:"cpriceformid"`           //价格组成
-	Cpricepolicyid     string  `json:"cpricepolicyid" xml:"cpricepolicyid"`       //价格政策
-	Cpriceitemid       string  `json:"cpriceitemid" xml:"cpriceitemid"`           //价格项目
-	Cpriceitemtableid  string  `json:"cpriceitemtableid" xml:"cpriceitemtableid"` //价目表
-	Bjczxsflag         string  `json:"bjczxsflag" xml:"bjczxsflag"`               //借出转销售
-	Vcttype            string  `json:"vcttype" xml:"vcttype"`                     //合同类型
-	Vctcode            string  `json:"vctcode" xml:"vctcode"`                     //销售合同号
-	Cctmanageid        string  `json:"cctmanageid" xml:"cctmanageid"`             //合同主表
-	Ctmanagebid        string  `json:"ctmanagebid" xml:"ctmanagebid"`             //
-	Vsrctype           string  `json:"vsrctype" xml:"vsrctype"`                   //来源单据类型
-	Vsrctrantype       string  `json:"vsrctrantype" xml:"vsrctrantype"`           //来源交易类型
-	Vsrccode           string  `json:"vsrccode" xml:"vsrccode"`                   //来源单据号
-	Vsrcrowno          string  `json:"vsrcrowno" xml:"vsrcrowno"`                 //来源单据行号
-	Csrcid             string  `json:"csrcid" xml:"csrcid"`                       //
-	Csrcbid            string  `json:"csrcbid" xml:"csrcbid"`                     //
-	Vfirsttype         string  `json:"vfirsttype" xml:"vfirsttype"`               //源头单据类型
-	Vfirsttrantype     string  `json:"vfirsttrantype" xml:"vfirsttrantype"`       //源头交易类型
-	Vfirstcode         string  `json:"vfirstcode" xml:"vfirstcode"`               //源头单据号
-	Cfirstid           string  `json:"cfirstid" xml:"cfirstid"`                   //
-	Cfirstbid          string  `json:"cfirstbid" xml:"cfirstbid"`                 //
-	Vfirstrowno        string  `json:"vfirstrowno" xml:"vfirstrowno"`             //源头单据行号
-	Cretreasonid       string  `json:"cretreasonid" xml:"cretreasonid"`           //退货原因
-	Cretpolicyid       string  `json:"cretpolicyid" xml:"cretpolicyid"`           //退货政策
-	Vreturnmode        string  `json:"vreturnmode" xml:"vreturnmode"`             //退货责任处理方式
-	Fretexchange       int     `json:"fretexchange" xml:"fretexchange"`           //退换货标记
-	Cexchangesrcretid  string  `json:"cexchangesrcretid" xml:"cexchangesrcretid"`
-	Clargesssrcid      string  `json:"clargesssrcid" xml:"clargesssrcid"`       //
-	Cbindsrcid         string  `json:"cbindsrcid" xml:"cbindsrcid"`             //
-	Flargesstypeflag   string  `json:"flargesstypeflag" xml:"flargesstypeflag"` //赠品价格分摊方式
-	Nlargessmny        float64 `json:"nlargessmny" xml:"nlargessmny"`           //赠品价格分摊前无税金额
-	Nlargesstaxmny     string  `json:"nlargesstaxmny" xml:"nlargesstaxmny"`     //赠品价格分摊前价税合计
-	Bprerowcloseflag   string  `json:"bprerowcloseflag" xml:"bprerowcloseflag"` //预订单行关闭
-	Vfree1             string  `json:"vfree1" xml:"vfree1"`
-	Vfree2             string  `json:"vfree2" xml:"vfree2"`
-	Vfree3             string  `json:"vfree3" xml:"vfree3"`
-	Vfree4             string  `json:"vfree4" xml:"vfree4"`
-	Vfree5             string  `json:"vfree5" xml:"vfree5"`
-	Vfree6             string  `json:"vfree6" xml:"vfree6"`
-	Vfree7             string  `json:"vfree7" xml:"vfree7"`
-	Vfree8             string  `json:"vfree8" xml:"vfree8"`
-	Vfree9             string  `json:"vfree9" xml:"vfree9"`
-	Vfree10            string  `json:"vfree10" xml:"vfree10"`
-	Vfree11            string  `json:"vfree11" xml:"vfree11"`
-	Vfree12            string  `json:"vfree12" xml:"vfree12"`
-	Vfree13            string  `json:"vfree13" xml:"vfree13"`
-	Vfree14            string  `json:"vfree14" xml:"vfree14"`
-	Vfree15            string  `json:"vfree15" xml:"vfree15"`
-	Vfree16            string  `json:"vfree16" xml:"vfree16"`
-	Vfree17            string  `json:"vfree17" xml:"vfree17"`
-	Vfree18            string  `json:"vfree18" xml:"vfree18"`
-	Vfree19            string  `json:"vfree19" xml:"vfree19"`
-	Vfree20            string  `json:"vfree20" xml:"vfree20"`
-	Bbsendendflag      string  `json:"bbsendendflag" xml:"bbsendendflag"`         //发货关闭
-	Bbinvoicendflag    string  `json:"bbinvoicendflag" xml:"bbinvoicendflag"`     //开票关闭
-	Bboutendflag       string  `json:"bboutendflag" xml:"bboutendflag"`           //出库关闭
-	Bbcostsettleflag   string  `json:"bbcostsettleflag" xml:"bbcostsettleflag"`   //成本结算关闭
-	Bbarsettleflag     string  `json:"bbarsettleflag" xml:"bbarsettleflag"`       //收入结算关闭
-	Vclosereason       string  `json:"vclosereason" xml:"vclosereason"`           //关闭/打开原因
-	Nsendauditnum      float64 `json:"nsendauditnum" xml:"nsendauditnum"`         //发货审批主数量
-	Noutauditnum       float64 `json:"noutauditnum" xml:"noutauditnum"`           //出库审批主数量
-	Ninvoiceauditnum   float64 `json:"ninvoiceauditnum" xml:"ninvoiceauditnum"`   //发票审批主数量
-	Noutnotauditnum    float64 `json:"noutnotauditnum" xml:"noutnotauditnum"`     //出库未签字主数量
-	Nlossnotauditnum   float64 `json:"nlossnotauditnum" xml:"nlossnotauditnum"`   //途损单未审核主数量
-	Ntotalsendnum      float64 `json:"ntotalsendnum" xml:"ntotalsendnum"`         //累计发货主数量
-	Ntotalinvoicenum   float64 `json:"ntotalinvoicenum" xml:"ntotalinvoicenum"`   //累计开票主数量
-	Ntotaloutnum       float64 `json:"ntotaloutnum" xml:"ntotaloutnum"`           //累计出库主数量
-	Ntotalnotoutnum    float64 `json:"ntotalnotoutnum" xml:"ntotalnotoutnum"`     //累计应发未出库主数量
-	Ntotalsignnum      float64 `json:"ntotalsignnum" xml:"ntotalsignnum"`         //累计签收主数量
-	Ntranslossnum      float64 `json:"ntranslossnum" xml:"ntranslossnum"`         //累计途损主数量
-	Ntotalrushnum      float64 `json:"ntotalrushnum" xml:"ntotalrushnum"`         //累计出库对冲主数量
-	Ntotalestarnum     float64 `json:"ntotalestarnum" xml:"ntotalestarnum"`       //累计暂估应收主数量
-	Ntotalarnum        float64 `json:"ntotalarnum" xml:"ntotalarnum"`             //累计确认应收主数量
-	Ntotalcostnum      float64 `json:"ntotalcostnum" xml:"ntotalcostnum"`         //累计成本结算主数量
-	Ntotalestarmny     float64 `json:"ntotalestarmny" xml:"ntotalestarmny"`       //累计暂估应收金额
-	Ntotalarmny        float64 `json:"ntotalarmny" xml:"ntotalarmny"`             //累计确认应收金额
-	Ntotalpaymny       float64 `json:"ntotalpaymny" xml:"ntotalpaymny"`           //累计财务核销金额
-	Norigsubmny        float64 `json:"norigsubmny" xml:"norigsubmny"`             //累计冲抵金额
-	Narrangescornum    float64 `json:"narrangescornum" xml:"narrangescornum"`     //累计安排委外订单主数量
-	Narrangepoappnum   float64 `json:"narrangepoappnum" xml:"narrangepoappnum"`   //累计安排请购单主数量
-	Narrangetoornum    float64 `json:"narrangetoornum" xml:"narrangetoornum"`     //累计安排调拨订单主数量
-	Narrangetoappnum   float64 `json:"narrangetoappnum" xml:"narrangetoappnum"`   //累计安排调拨申请主数量
-	Narrangemonum      float64 `json:"narrangemonum" xml:"narrangemonum"`         //累计安排生产订单主数量
-	Narrangeponum      float64 `json:"narrangeponum" xml:"narrangeponum"`         //累计安排采购订单主数量
-	Ntotalplonum       float64 `json:"ntotalplonum" xml:"ntotalplonum"`           //累计生成计划订单主数量
-	Nreqrsnum          float64 `json:"nreqrsnum" xml:"nreqrsnum"`                 //预留主数量
-	Ntotalreturnnum    float64 `json:"ntotalreturnnum" xml:"ntotalreturnnum"`     //累计退货主数量
-	Ntotaltradenum     float64 `json:"ntotaltradenum" xml:"ntotaltradenum"`       //累计发出商品主数量
-	Barrangedflag      string  `json:"barrangedflag" xml:"barrangedflag"`         //是否货源安排完毕
-	Carrangepersonid   string  `json:"carrangepersonid" xml:"carrangepersonid"`   //
-	Tlastarrangetime   string  `json:"tlastarrangetime" xml:"tlastarrangetime"`   //
-	Nsendunfinisednum  float64 `json:"nsendunfinisednum" xml:"nsendunfinisednum"` //发货未完成量
-	Noutunfinisednum   float64 `json:"noutunfinisednum" xml:"noutunfinisednum"`   //出库未完成量
-	Ninvunfinisednum   float64 `json:"ninvunfinisednum" xml:"ninvunfinisednum"`   //发票未完成量
-	Nnotarnum          float64 `json:"nnotarnum" xml:"nnotarnum"`                 //未传确认应收主数量
-	Nnotcostnum        float64 `json:"nnotcostnum" xml:"nnotcostnum"`             //未传存货核算主数量
-	Bbsettleendflag    string  `json:"bbsettleendflag" xml:"bbsettleendflag"`     //结算关闭
-	Srcts              string  `json:"srcts" xml:"srcts"`                         //来源单据表头时间戳
-	Srcbts             string  `json:"srcbts" xml:"srcbts"`                       //来源单据表体时间戳
-	Srcorgid           string  `json:"srcorgid" xml:"srcorgid"`                   //
-	Vbdef1             string  `json:"vbdef1" xml:"vbdef1"`
-	Vbdef2             string  `json:"vbdef2" xml:"vbdef2"`
-	Vbdef3             string  `json:"vbdef3" xml:"vbdef3"`
-	Vbdef4             string  `json:"vbdef4" xml:"vbdef4"`
-	Vbdef5             string  `json:"vbdef5" xml:"vbdef5"`
-	Vbdef6             string  `json:"vbdef6" xml:"vbdef6"`
-	Vbdef7             string  `json:"vbdef7" xml:"vbdef7"`
-	Vbdef8             string  `json:"vbdef8" xml:"vbdef8"`
-	Vbdef9             string  `json:"vbdef9" xml:"vbdef9"`
-	Vbdef10            string  `json:"vbdef10" xml:"vbdef10"`
-	Vbdef11            string  `json:"vbdef11" xml:"vbdef11"`
-	Vbdef12            string  `json:"vbdef12" xml:"vbdef12"`
-	Vbdef13            string  `json:"vbdef13" xml:"vbdef13"`
-	Vbdef14            string  `json:"vbdef14" xml:"vbdef14"`
-	Vbdef15            string  `json:"vbdef15" xml:"vbdef15"`
-	Vbdef16            string  `json:"vbdef16" xml:"vbdef16"`
-	Vbdef17            string  `json:"vbdef17" xml:"vbdef17"`
-	Vbdef18            string  `json:"vbdef18" xml:"vbdef18"`
-	Vbdef19            string  `json:"vbdef19" xml:"vbdef19"`
-	Vbdef20            string  `json:"vbdef20" xml:"vbdef20"`
+	Csaleorderbid      string  `json:"csaleorderbid,omitempty" xml:"csaleorderbid,omitempty" comment:""`
+	PkGroup            string  `json:"pk_group,omitempty" xml:"pk_group,omitempty" comment:"集团"`                     
+	PkOrg              string  `json:"pk_org,omitempty" xml:"pk_org,omitempty" comment:"销售组织"`                         
+	Dbilldate          string  `json:"dbilldate,omitempty" xml:"dbilldate,omitempty" comment:"单据日期"`                  
+	Crowno             string  `json:"crowno,omitempty" xml:"crowno,omitempty" comment:"行号"`                         
+	Cmaterialvid       string  `json:"cmaterialvid,omitempty" xml:"cmaterialvid,omitempty" comment:"物料编码"`             
+	Cmaterialid        string  `json:"cmaterialid,omitempty" xml:"cmaterialid,omitempty" comment:"物料"`               
+	Cvendorid          string  `json:"cvendorid,omitempty" xml:"cvendorid,omitempty" comment:"供应商"`                   
+	Cprojectid         string  `json:"cprojectid,omitempty" xml:"cprojectid,omitempty" comment:"项目"`                 
+	Cproductorid       string  `json:"cproductorid,omitempty" xml:"cproductorid,omitempty" comment:"生产厂商"`             
+	Cfactoryid         string  `json:"cfactoryid,omitempty" xml:"cfactoryid,omitempty" comment:"工厂"`                 
+	Cqualitylevelid    string  `json:"cqualitylevelid,omitempty" xml:"cqualitylevelid,omitempty" comment:"质量等级"`      
+	Corigcountryid     string  `json:"corigcountryid,omitempty" xml:"corigcountryid,omitempty" comment:"原产国"`         
+	Corigareaid        string  `json:"corigareaid,omitempty" xml:"corigareaid,omitempty" comment:"原产地区"`               
+	Cunitid            string  `json:"cunitid,omitempty" xml:"cunitid,omitempty" comment:"主单位"`                       
+	Castunitid         string  `json:"castunitid,omitempty" xml:"castunitid,omitempty" comment:"单位"`                 
+	Nnum               int     `json:"nnum,omitempty" xml:"nnum,omitempty" comment:"主数量"`                             
+	Nastnum            int     `json:"nastnum,omitempty" xml:"nastnum,omitempty" comment:"数量"`                       
+	Vchangerate        string  `json:"vchangerate,omitempty" xml:"vchangerate,omitempty" comment:"换算率"`               
+	Cqtunitid          string  `json:"cqtunitid,omitempty" xml:"cqtunitid,omitempty" comment:"报价单位"`                   
+	Nqtunitnum         float64 `json:"nqtunitnum,omitempty" xml:"nqtunitnum,omitempty" comment:"报价单位数量"`                 
+	Vqtunitrate        string  `json:"vqtunitrate,omitempty" xml:"vqtunitrate,omitempty" comment:"报价换算率"`               
+	Ndiscountrate      float64 `json:"ndiscountrate,omitempty" xml:"ndiscountrate,omitempty" comment:"整单折扣"`           
+	Nitemdiscountrate  float64 `json:"nitemdiscountrate,omitempty" xml:"nitemdiscountrate,omitempty" comment:"单品折扣"`   
+	Ctaxcodeid         string  `json:"ctaxcodeid,omitempty" xml:"ctaxcodeid,omitempty" comment:"税码"`                 
+	Ntaxrate           float64 `json:"ntaxrate,omitempty" xml:"ntaxrate" comment:"税率"`                     
+	Ftaxtypeflag       int     `json:"ftaxtypeflag,omitempty" xml:"ftaxtypeflag,omitempty" comment:"扣税类别"`             
+	Ccurrencyid        string  `json:"ccurrencyid,omitempty" xml:"ccurrencyid,omitempty" comment:"本位币"`              
+	Nexchangerate      float64 `json:"nexchangerate,omitempty" xml:"nexchangerate,omitempty" comment:"折本汇率"`           
+	Nqtorigtaxprice    float64 `json:"nqtorigtaxprice,omitempty" xml:"nqtorigtaxprice,omitempty" comment:"含税单价"`     
+	Nqtorigprice       float64 `json:"nqtorigprice,omitempty" xml:"nqtorigprice,omitempty" comment:"无税单价"`             
+	Nqtorigtaxnetprc   float64 `json:"nqtorigtaxnetprc,omitempty" xml:"nqtorigtaxnetprc,omitempty" comment:"含税净价"`  
+	Nqtorignetprice    float64 `json:"nqtorignetprice,omitempty" xml:"nqtorignetprice,omitempty" comment:"无税净价"`       
+	Norigtaxprice      float64 `json:"norigtaxprice,omitempty" xml:"norigtaxprice,omitempty" comment:"主含税单价"`          
+	Norigprice         float64 `json:"norigprice,omitempty" xml:"norigprice,omitempty" comment:"主无税单价"`                 
+	Norigtaxnetprice   float64 `json:"norigtaxnetprice,omitempty" xml:"norigtaxnetprice,omitempty" comment:"主含税净价"`     
+	Norignetprice      float64 `json:"norignetprice,omitempty" xml:"norignetprice,omitempty" comment:"主无税净价"`           
+	Ntax               float64 `json:"ntax,omitempty" xml:"ntax,omitempty" comment:"税额"`                             
+	Ncaltaxmny         float64 `json:"ncaltaxmny" xml:"ncaltaxmny,omitempty" comment:"计税金额"`                
+	Norigmny           float64 `json:"norigmny,omitempty" xml:"norigmny,omitempty" comment:"无税金额"`                     
+	Norigtaxmny        float64 `json:"norigtaxmny,omitempty" xml:"norigtaxmny,omitempty" comment:"价税合计"`               
+	Norigdiscount      float64 `json:"norigdiscount,omitempty" xml:"norigdiscount,omitempty" comment:"折扣额"`           
+	Nbforigsubmny      float64 `json:"nbforigsubmny,omitempty" xml:"nbforigsubmny,omitempty" comment:"冲抵前金额"`           
+	Nqttaxprice        float64 `json:"nqttaxprice,omitempty" xml:"nqttaxprice,omitempty" comment:"本币含税单价"`               
+	Nqtprice           float64 `json:"nqtprice,omitempty" xml:"nqtprice,omitempty" comment:"本币无税单价"`                     
+	Nqttaxnetprice     float64 `json:"nqttaxnetprice,omitempty" xml:"nqttaxnetprice,omitempty" comment:"本币含税净价"`         
+	Nqtnetprice        float64 `json:"nqtnetprice,omitempty" xml:"nqtnetprice,omitempty" comment:"本币无税净价"`               
+	Ntaxprice          float64 `json:"ntaxprice,omitempty" xml:"ntaxprice,omitempty" comment:"主本币含税单价"`                   
+	Nprice             float64 `json:"nprice,omitempty" xml:"nprice,omitempty" comment:"主本币无税单价"`                         
+	Ntaxnetprice       float64 `json:"ntaxnetprice,omitempty" xml:"ntaxnetprice,omitempty" comment:"主本币含税净价"`             
+	Nnetprice          float64 `json:"nnetprice,omitempty" xml:"nnetprice,omitempty" comment:"主本币无税净价"`                  
+	Nmny               float64 `json:"nmny,omitempty" xml:"nmny,omitempty" comment:"本币无税金额"`                             
+	Ntaxmny            float64 `json:"ntaxmny,omitempty" xml:"ntaxmny,omitempty" comment:"本币价税合计"`                       
+	Ndiscount          float64 `json:"ndiscount,omitempty" xml:"ndiscount,omitempty" comment:"本币折扣额"`                   
+	Ngroupexchgrate    float64 `json:"ngroupexchgrate,omitempty" xml:"ngroupexchgrate,omitempty" comment:"集团本位币汇率"`     
+	Ngroupmny          float64 `json:"ngroupmny,omitempty" xml:"ngroupmny,omitempty" comment:"集团本币无税金额"`                   
+	Ngrouptaxmny       float64 `json:"ngrouptaxmny,omitempty" xml:"ngrouptaxmny,omitempty" comment:"集团本币价税合计"`             
+	Nglobalexchgrate   float64 `json:"nglobalexchgrate,omitempty" xml:"nglobalexchgrate,omitempty" comment:"全局本位币汇率"`     
+	Nglobalmny         float64 `json:"nglobalmny,omitempty" xml:"nglobalmny,omitempty" comment:"全局本币无税金额"`              
+	Nglobaltaxmny      float64 `json:"nglobaltaxmny,omitempty" xml:"nglobaltaxmny,omitempty" comment:"全局本币价税合计"`          
+	Naskqtorigtaxprc   float64 `json:"naskqtorigtaxprc,omitempty" xml:"naskqtorigtaxprc,omitempty" comment:"询价原币含税单价"`     
+	Naskqtorigprice    float64 `json:"naskqtorigprice,omitempty" xml:"naskqtorigprice,omitempty" comment:"询价原币无税单价"`       
+	Naskqtorigtxntprc  float64 `json:"naskqtorigtxntprc,omitempty" xml:"naskqtorigtxntprc,omitempty" comment:"询价原币含税净价"`   
+	Naskqtorignetprice float64 `json:"naskqtorignetprice,omitempty" xml:"naskqtorignetprice,omitempty" comment:"询价原币无税净价"` 
+	Nweight            float64 `json:"nweight,omitempty" xml:"nweight,omitempty" comment:"重量"`                       
+	Nvolume            float64 `json:"nvolume,omitempty" xml:"nvolume,omitempty" comment:"体积"`                        
+	Npiece             float64 `json:"npiece,omitempty" xml:"npiece,omitempty" comment:"件数"`                         
+	Cprodlineid        string  `json:"cprodlineid,omitempty" xml:"cprodlineid,omitempty" comment:"产品线"`               
+	Vbatchcode         string  `json:"vbatchcode,omitempty" xml:"vbatchcode,omitempty" comment:"批次号"`                 
+	PkBatchcode        string  `json:"pk_batchcode,omitempty" xml:"pk_batchcode,omitempty" comment:""`
+	Blaborflag         string  `json:"blaborflag,omitempty" xml:"blaborflag,omitempty" comment:"服务类"`               
+	Bdiscountflag      string  `json:"bdiscountflag,omitempty" xml:"bdiscountflag,omitempty" comment:"折扣类"`         
+	Blargessflag       string  `json:"blargessflag,omitempty" xml:"blargessflag" comment:"赠品"`           
+	Bbindflag          string  `json:"bbindflag,omitempty" xml:"bbindflag,omitempty" comment:"捆绑存货"`                 
+	Dsenddate          string  `json:"dsenddate,omitempty" xml:"dsenddate,omitempty" comment:"要求发货日期"`                 
+	Dreceivedate       string  `json:"dreceivedate,omitempty" xml:"dreceivedate,omitempty" comment:"计划到货日期"`           
+	Creceivecustid     string  `json:"creceivecustid,omitempty" xml:"creceivecustid,omitempty" comment:"收货客户"`     
+	Creceiveareaid     string  `json:"creceiveareaid,omitempty" xml:"creceiveareaid,omitempty" comment:"收货地区"`       
+	Creceiveaddrid     string  `json:"creceiveaddrid,omitempty" xml:"creceiveaddrid,omitempty" comment:"收货地址"`       
+	Creceiveadddocid   string  `json:"creceiveadddocid,omitempty" xml:"creceiveadddocid,omitempty" comment:"收货地点"`  
+	Csendstockorgvid   string  `json:"csendstockorgvid,omitempty" xml:"csendstockorgvid,omitempty" comment:"发货库存组织"`   
+	Csendstockorgid    string  `json:"csendstockorgid,omitempty" xml:"csendstockorgid,omitempty" comment:"发货库存组织最新版本"`     
+	Csendstordocid     string  `json:"csendstordocid,omitempty" xml:"csendstordocid,omitempty" comment:"发货仓库"`       
+	Ctrafficorgvid     string  `json:"ctrafficorgvid,omitempty" xml:"ctrafficorgvid,omitempty" comment:"物流组织"`       
+	Ctrafficorgid      string  `json:"ctrafficorgid,omitempty" xml:"ctrafficorgid,omitempty" comment:"物流组织"`         
+	Csettleorgvid      string  `json:"csettleorgvid,omitempty" xml:"csettleorgvid,omitempty" comment:"结算财务组织"`         
+	Csettleorgid       string  `json:"csettleorgid,omitempty" xml:"csettleorgid,omitempty" comment:"结算财务组织"`           
+	Crececountryid     string  `json:"crececountryid,omitempty" xml:"crececountryid,omitempty" comment:"收货国家/地区"`       
+	Csendcountryid     string  `json:"csendcountryid,omitempty" xml:"csendcountryid,omitempty" comment:"发货国家/地区"`       
+	Ctaxcountryid      string  `json:"ctaxcountryid,omitempty" xml:"ctaxcountryid,omitempty" comment:"报税国家/地区"`         
+	Fbuysellflag       int     `json:"fbuysellflag,omitempty" xml:"fbuysellflag,omitempty" comment:"购销类型"`           
+	Btriatradeflag     string  `json:"btriatradeflag,omitempty" xml:"btriatradeflag,omitempty" comment:"三角贸易"`       
+	Carorgvid          string  `json:"carorgvid,omitempty" xml:"carorgvid,omitempty" comment:"应收组织"`               
+	Carorgid           string  `json:"carorgid,omitempty" xml:"carorgid,omitempty" comment:"应收组织最新版本"`                   
+	Cprofitcentervid   string  `json:"cprofitcentervid,omitempty" xml:"cprofitcentervid,omitempty" comment:"利润中心"`   
+	Cprofitcenterid    string  `json:"cprofitcenterid,omitempty" xml:"cprofitcenterid,omitempty" comment:"利润中心"`     
+	Vbrevisereason     string  `json:"vbrevisereason,omitempty" xml:"vbrevisereason,omitempty" comment:"修订理由"`       
+	Frowstatus         int     `json:"frowstatus,omitempty" xml:"frowstatus,omitempty" comment:"行状态"`               
+	Vrownote           string  `json:"vrownote,omitempty" xml:"vrownote,omitempty" comment:"行备注"`                   
+	Cpriceformid       string  `json:"cpriceformid,omitempty" xml:"cpriceformid,omitempty" comment:"价格组成"`           
+	Cpricepolicyid     string  `json:"cpricepolicyid,omitempty" xml:"cpricepolicyid,omitempty" comment:"价格政策"`       
+	Cpriceitemid       string  `json:"cpriceitemid,omitempty" xml:"cpriceitemid,omitempty" comment:"价格项目"`           
+	Cpriceitemtableid  string  `json:"cpriceitemtableid,omitempty" xml:"cpriceitemtableid,omitempty" comment:"价目表"` 
+	Bjczxsflag         string  `json:"bjczxsflag,omitempty" xml:"bjczxsflag,omitempty" comment:"借出转销售"`               
+	Vcttype            string  `json:"vcttype,omitempty" xml:"vcttype,omitempty" comment:"合同类型"`                     
+	Vctcode            string  `json:"vctcode,omitempty" xml:"vctcode,omitempty" comment:"销售合同号"`                     
+	Cctmanageid        string  `json:"cctmanageid,omitempty" xml:"cctmanageid,omitempty" comment:"合同主表"`             
+	Ctmanagebid        string  `json:"ctmanagebid,omitempty" xml:"ctmanagebid,omitempty" comment:""`             
+	Vsrctype           string  `json:"vsrctype,omitempty" xml:"vsrctype,omitempty" comment:"来源单据类型"`                   
+	Vsrctrantype       string  `json:"vsrctrantype,omitempty" xml:"vsrctrantype,omitempty" comment:"来源交易类型"`           
+	Vsrccode           string  `json:"vsrccode,omitempty" xml:"vsrccode,omitempty" comment:"来源单据号"`                   
+	Vsrcrowno          string  `json:"vsrcrowno,omitempty" xml:"vsrcrowno,omitempty" comment:"来源单据行号"`                
+	Csrcid             string  `json:"csrcid,omitempty" xml:"csrcid,omitempty" comment:""`                      
+	Csrcbid            string  `json:"csrcbid,omitempty" xml:"csrcbid,omitempty" comment:""`                     
+	Vfirsttype         string  `json:"vfirsttype,omitempty" xml:"vfirsttype,omitempty" comment:"源头单据类型"`               
+	Vfirsttrantype     string  `json:"vfirsttrantype,omitempty" xml:"vfirsttrantype,omitempty" comment:"源头交易类型"`       
+	Vfirstcode         string  `json:"vfirstcode,omitempty" xml:"vfirstcode,omitempty" comment:"源头单据号"`               
+	Cfirstid           string  `json:"cfirstid,omitempty" xml:"cfirstid,omitempty" comment:""`                   
+	Cfirstbid          string  `json:"cfirstbid,omitempty" xml:"cfirstbid,omitempty" comment:""`                
+	Vfirstrowno        string  `json:"vfirstrowno,omitempty" xml:"vfirstrowno,omitempty" comment:"源头单据行号"`             
+	Cretreasonid       string  `json:"cretreasonid,omitempty" xml:"cretreasonid,omitempty" comment:"退货原因"`           
+	Cretpolicyid       string  `json:"cretpolicyid,omitempty" xml:"cretpolicyid,omitempty" comment:"退货政策"`           
+	Vreturnmode        string  `json:"vreturnmode,omitempty" xml:"vreturnmode,omitempty" comment:"退货责任处理方式"`            
+	Fretexchange       int     `json:"fretexchange,omitempty" xml:"fretexchange,omitempty" comment:"退换货标记"`           
+	Cexchangesrcretid  string  `json:"cexchangesrcretid,omitempty" xml:"cexchangesrcretid,omitempty" comment:""`
+	Clargesssrcid      string  `json:"clargesssrcid,omitempty" xml:"clargesssrcid,omitempty" comment:""`       
+	Cbindsrcid         string  `json:"cbindsrcid,omitempty" xml:"cbindsrcid,omitempty" comment:""`             
+	Flargesstypeflag   string  `json:"flargesstypeflag,omitempty" xml:"flargesstypeflag,omitempty" comment:"赠品价格分摊方式"` 
+	Nlargessmny        float64 `json:"nlargessmny,omitempty" xml:"nlargessmny,omitempty" comment:"赠品价格分摊前无税金额"`           
+	Nlargesstaxmny     string  `json:"nlargesstaxmny,omitempty" xml:"nlargesstaxmny,omitempty" comment:"赠品价格分摊前价税合计"`     
+	Bprerowcloseflag   string  `json:"bprerowcloseflag" xml:"bprerowcloseflag,omitempty" comment:"预订单行关闭"` 
+	Vfree1             string  `json:"vfree1,omitempty" xml:"vfree1,omitempty" comment:""`
+	Vfree2             string  `json:"vfree2,omitempty" xml:"vfree2,omitempty" comment:""`
+	Vfree3             string  `json:"vfree3,omitempty" xml:"vfree3,omitempty" comment:""`
+	Vfree4             string  `json:"vfree4,omitempty" xml:"vfree4,omitempty" comment:""`
+	Vfree5             string  `json:"vfree5,omitempty" xml:"vfree5,omitempty" comment:""`
+	Vfree6             string  `json:"vfree6,omitempty" xml:"vfree6,omitempty" comment:""`
+	Vfree7             string  `json:"vfree7,omitempty" xml:"vfree7,omitempty" comment:""`
+	Vfree8             string  `json:"vfree8,omitempty" xml:"vfree8,omitempty" comment:""`
+	Vfree9             string  `json:"vfree9,omitempty" xml:"vfree9,omitempty" comment:""`
+	Vfree10            string  `json:"vfree10,omitempty" xml:"vfree10,omitempty" comment:""`
+	Vfree11            string  `json:"vfree11,omitempty" xml:"vfree11,omitempty" comment:""`
+	Vfree12            string  `json:"vfree12,omitempty" xml:"vfree12,omitempty" comment:""`
+	Vfree13            string  `json:"vfree13,omitempty" xml:"vfree13,omitempty" comment:""`
+	Vfree14            string  `json:"vfree14,omitempty" xml:"vfree14,omitempty" comment:""`
+	Vfree15            string  `json:"vfree15,omitempty" xml:"vfree15,omitempty" comment:""`
+	Vfree16            string  `json:"vfree16,omitempty" xml:"vfree16,omitempty" comment:""`
+	Vfree17            string  `json:"vfree17,omitempty" xml:"vfree17,omitempty" comment:""`
+	Vfree18            string  `json:"vfree18,omitempty" xml:"vfree18,omitempty" comment:""`
+	Vfree19            string  `json:"vfree19,omitempty" xml:"vfree19,omitempty" comment:""`
+	Vfree20            string  `json:"vfree20,omitempty" xml:"vfree20,omitempty" comment:""`
+	Bbsendendflag      string  `json:"bbsendendflag,omitempty" xml:"bbsendendflag,omitempty" comment:"发货关闭"`         
+	Bbinvoicendflag    string  `json:"bbinvoicendflag,omitempty" xml:"bbinvoicendflag,omitempty" comment:"开票关闭"`     
+	Bboutendflag       string  `json:"bboutendflag,omitempty" xml:"bboutendflag,omitempty" comment:"出库关闭"`           
+	Bbcostsettleflag   string  `json:"bbcostsettleflag,omitempty" xml:"bbcostsettleflag,omitempty" comment:"成本结算关闭"`   
+	Bbarsettleflag     string  `json:"bbarsettleflag,omitempty" xml:"bbarsettleflag,omitempty" comment:"收入结算关闭"`       
+	Vclosereason       string  `json:"vclosereason,omitempty" xml:"vclosereason,omitempty" comment:"关闭/打开原因"`           
+	Nsendauditnum      float64 `json:"nsendauditnum,omitempty" xml:"nsendauditnum,omitempty" comment:"发货审批主数量"`         
+	Noutauditnum       float64 `json:"noutauditnum,omitempty" xml:"noutauditnum,omitempty" comment:"出库审批主数量"`           
+	Ninvoiceauditnum   float64 `json:"ninvoiceauditnum,omitempty" xml:"ninvoiceauditnum,omitempty" comment:"发票审批主数量"`   
+	Noutnotauditnum    float64 `json:"noutnotauditnum,omitempty" xml:"noutnotauditnum,omitempty" comment:"出库未签字主数量"`     
+	Nlossnotauditnum   float64 `json:"nlossnotauditnum,omitempty" xml:"nlossnotauditnum,omitempty" comment:"途损单未审核主数量"`   
+	Ntotalsendnum      float64 `json:"ntotalsendnum,omitempty" xml:"ntotalsendnum,omitempty" comment:"累计发货主数量"`         
+	Ntotalinvoicenum   float64 `json:"ntotalinvoicenum,omitempty" xml:"ntotalinvoicenum,omitempty" comment:"累计开票主数量"`   
+	Ntotaloutnum       float64 `json:"ntotaloutnum,omitempty" xml:"ntotaloutnum,omitempty" comment:"累计出库主数量"`           
+	Ntotalnotoutnum    float64 `json:"ntotalnotoutnum,omitempty" xml:"ntotalnotoutnum,omitempty" comment:"累计应发未出库主数量"`     
+	Ntotalsignnum      float64 `json:"ntotalsignnum,omitempty" xml:"ntotalsignnum,omitempty" comment:"累计签收主数量"`         
+	Ntranslossnum      float64 `json:"ntranslossnum,omitempty" xml:"ntranslossnum,omitempty" comment:"累计途损主数量"`         
+	Ntotalrushnum      float64 `json:"ntotalrushnum,omitempty" xml:"ntotalrushnum,omitempty" comment:"累计出库对冲主数量"`      
+	Ntotalestarnum     float64 `json:"ntotalestarnum,omitempty" xml:"ntotalestarnum,omitempty" comment:"累计暂估应收主数量"`       
+	Ntotalarnum        float64 `json:"ntotalarnum,omitempty" xml:"ntotalarnum,omitempty" comment:"累计确认应收主数量"`             
+	Ntotalcostnum      float64 `json:"ntotalcostnum,omitempty" xml:"ntotalcostnum,omitempty" comment:"累计成本结算主数量"`         
+	Ntotalestarmny     float64 `json:"ntotalestarmny,omitempty" xml:"ntotalestarmny,omitempty" comment:"累计暂估应收金额"`       
+	Ntotalarmny        float64 `json:"ntotalarmny,omitempty" xml:"ntotalarmny,omitempty" comment:"累计确认应收金额"`             
+	Ntotalpaymny       float64 `json:"ntotalpaymny,omitempty" xml:"ntotalpaymny,omitempty" comment:"累计财务核销金额"`           
+	Norigsubmny        float64 `json:"norigsubmny,omitempty" xml:"norigsubmny,omitempty" comment:"累计冲抵金额"`             
+	Narrangescornum    float64 `json:"narrangescornum,omitempty" xml:"narrangescornum,omitempty" comment:"累计安排委外订单主数量"`     
+	Narrangepoappnum   float64 `json:"narrangepoappnum,omitempty" xml:"narrangepoappnum,omitempty" comment:"累计安排请购单主数量"`   
+	Narrangetoornum    float64 `json:"narrangetoornum,omitempty" xml:"narrangetoornum,omitempty" comment:"累计安排调拨订单主数量"`    
+	Narrangetoappnum   float64 `json:"narrangetoappnum,omitempty" xml:"narrangetoappnum,omitempty" comment:"累计安排调拨申请主数量"`   
+	Narrangemonum      float64 `json:"narrangemonum,omitempty" xml:"narrangemonum,omitempty" comment:"累计安排生产订单主数量"`         
+	Narrangeponum      float64 `json:"narrangeponum,omitempty" xml:"narrangeponum,omitempty" comment:"累计安排采购订单主数量"`       
+	Ntotalplonum       float64 `json:"ntotalplonum,omitempty" xml:"ntotalplonum,omitempty" comment:"累计生成计划订单主数量"`           
+	Nreqrsnum          float64 `json:"nreqrsnum,omitempty" xml:"nreqrsnum,omitempty" comment:"预留主数量"`                 
+	Ntotalreturnnum    float64 `json:"ntotalreturnnum,omitempty" xml:"ntotalreturnnum,omitempty" comment:"累计退货主数量"`     
+	Ntotaltradenum     float64 `json:"ntotaltradenum,omitempty" xml:"ntotaltradenum,omitempty" comment:"累计发出商品主数量"`       
+	Barrangedflag      string  `json:"barrangedflag,omitempty" xml:"barrangedflag,omitempty" comment:"是否货源安排完毕"`         
+	Carrangepersonid   string  `json:"carrangepersonid,omitempty" xml:"carrangepersonid,omitempty" comment:""`   
+	Tlastarrangetime   string  `json:"tlastarrangetime,omitempty" xml:"tlastarrangetime,omitempty" comment:""`   
+	Nsendunfinisednum  float64 `json:"nsendunfinisednum,omitempty" xml:"nsendunfinisednum,omitempty" comment:"发货未完成量"` 
+	Noutunfinisednum   float64 `json:"noutunfinisednum,omitempty" xml:"noutunfinisednum,omitempty" comment:"出库未完成量"`  
+	Ninvunfinisednum   float64 `json:"ninvunfinisednum,omitempty" xml:"ninvunfinisednum,omitempty" comment:"发票未完成量"`   
+	Nnotarnum          float64 `json:"nnotarnum,omitempty" xml:"nnotarnum,omitempty" comment:"未传确认应收主数量"`                
+	Nnotcostnum        float64 `json:"nnotcostnum,omitempty" xml:"nnotcostnum,omitempty" comment:"未传存货核算主数量"`             
+	Bbsettleendflag    string  `json:"bbsettleendflag,omitempty" xml:"bbsettleendflag,omitempty" comment:"结算关闭"`     
+	Srcts              string  `json:"srcts,omitempty" xml:"srcts,omitempty" comment:"来源单据表头时间戳"`                         
+	Srcbts             string  `json:"srcbts,omitempty" xml:"srcbts,omitempty" comment:"来源单据表体时间戳"`                       
+	Srcorgid           string  `json:"srcorgid,omitempty" xml:"srcorgid,omitempty" comment:""`                 
+	Vbdef1             string  `json:"vbdef1,omitempty" xml:"vbdef1,omitempty" comment:""`
+	Vbdef2             string  `json:"vbdef2,omitempty" xml:"vbdef2,omitempty" comment:""`
+	Vbdef3             string  `json:"vbdef3,omitempty" xml:"vbdef3,omitempty" comment:""`
+	Vbdef4             string  `json:"vbdef4,omitempty" xml:"vbdef4,omitempty" comment:""`
+	Vbdef5             string  `json:"vbdef5,omitempty" xml:"vbdef5,omitempty" comment:""`
+	Vbdef6             string  `json:"vbdef6,omitempty" xml:"vbdef6,omitempty" comment:""`
+	Vbdef7             string  `json:"vbdef7,omitempty" xml:"vbdef7,omitempty" comment:""`
+	Vbdef8             string  `json:"vbdef8,omitempty" xml:"vbdef8,omitempty" comment:""`
+	Vbdef9             string  `json:"vbdef9,omitempty" xml:"vbdef9,omitempty" comment:""`
+	Vbdef10            string  `json:"vbdef10,omitempty" xml:"vbdef10,omitempty" comment:""`
+	Vbdef11            string  `json:"vbdef11,omitempty" xml:"vbdef11,omitempty" comment:""`
+	Vbdef12            string  `json:"vbdef12,omitempty" xml:"vbdef12,omitempty" comment:""`
+	Vbdef13            string  `json:"vbdef13,omitempty" xml:"vbdef13,omitempty" comment:""`
+	Vbdef14            string  `json:"vbdef14,omitempty" xml:"vbdef14,omitempty" comment:""`
+	Vbdef15            string  `json:"vbdef15,omitempty" xml:"vbdef15,omitempty" comment:""`
+	Vbdef16            string  `json:"vbdef16,omitempty" xml:"vbdef16,omitempty" comment:""`
+	Vbdef17            string  `json:"vbdef17,omitempty" xml:"vbdef17,omitempty" comment:""`
+	Vbdef18            string  `json:"vbdef18,omitempty" xml:"vbdef18,omitempty" comment:""`
+	Vbdef19            string  `json:"vbdef19,omitempty" xml:"vbdef19,omitempty" comment:""`
+	Vbdef20            string  `json:"vbdef20,omitempty" xml:"vbdef20,omitempty" comment:""`
 }
 
 type ReqSaleOutWare struct {

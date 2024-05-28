@@ -6,6 +6,7 @@ import (
 	"github.com/seerwo/yonyou/nc/context"
 	"github.com/seerwo/yonyou/nc/oauth"
 	"github.com/seerwo/yonyou/nc/sale"
+	"github.com/seerwo/yonyou/nc/purchase"
 )
 
 //NC nc relate api
@@ -36,4 +37,10 @@ func (nc *NC) GetOauth() *oauth.Oauth {
 //GetSale
 func (nc *NC) GetSale() *sale.Sale {
 	return sale.NewSale(nc.ctx)
+}
+
+
+//GetPurchase
+func (nc *NC) GetPurchase() *purchase.Purchase {
+	return purchase.NewPurchase(nc.ctx)
 }
